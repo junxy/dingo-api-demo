@@ -19,4 +19,14 @@ class PostsController extends Controller
         return 'store';
     }
 
+    public function update()
+    {
+        return 'update';
+    }
+
+    public function destroy()
+    {
+        return 'destroy';
+    }
+
 }

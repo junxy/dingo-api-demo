@@ -19,7 +19,10 @@ class ExampleTest extends TestCase
     {
         $this->client->request('PUT', '/api/posts');
         $this->assertResponseOk();
+    }
 
+    public function testPostsUpdate2()
+    {
         $this->client->request('PATCH', '/api/posts');
         $this->assertResponseOk();
     }

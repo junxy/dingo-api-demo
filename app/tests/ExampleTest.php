@@ -1,17 +1,32 @@
 <?php
 
-class ExampleTest extends TestCase {
+class ExampleTest extends TestCase
+{
 
-	/**
-	 * A basic functional test example.
-	 *
-	 * @return void
-	 */
-	public function testBasicExample()
-	{
-		$crawler = $this->client->request('GET', '/');
+    public function testPostsGet()
+    {
+        $this->client->request('GET', '/api/posts');
+        $this->assertResponseOk();
+    }
 
-		$this->assertTrue($this->client->getResponse()->isOk());
-	}
+    public function testPostsAdd()
+    {
+        $this->client->request('POST', '/api/posts');
+        $this->assertResponseOk();
+    }
 
+    public function testPostsUpdate()
+    {
+        $this->client->request('PUT', '/api/posts');
+        $this->assertResponseOk();
+
+        $this->client->request('PATCH', '/api/posts');
+        $this->assertResponseOk();
+    }
+
+    public function testPostsDelete()
+    {
+        $this->client->request('DELETE', '/api/posts');
+        $this->assertResponseOk();
+    }
 }

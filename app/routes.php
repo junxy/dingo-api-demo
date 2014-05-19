@@ -11,8 +11,15 @@
 |
 */
 
-Route::get('/', function()
-{
-	return View::make('hello');
+Route::get('/', function () {
+    return View::make('hello');
 });
 
+Route::api(['version' => 'v1', 'prefix' => 'api'], function () {
+//    Route::get('users', function()
+//    {
+//        return User::all();
+//    });
+
+    Route::resource('posts', 'PostsController');
+});
